@@ -40,15 +40,9 @@ class Solver
     			new_possibles << c
     		end
     	end
-    	@possibles = new_possibles
-    	puts "#{@possibles.length} possibles"
-        if (@possibles.length <= 10)
-            @possibles.each do |c|
-                puts c
-            end
-        end
+    	puts "#{new_possibles.length} possibles"
+        @possibles = new_possibles
     end
-
 
 end
 
