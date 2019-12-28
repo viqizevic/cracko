@@ -4,7 +4,7 @@ greeting = "Welcome to Cracko game!"
 puts greeting
 puts Time.now.strftime("Game starts on %A %m/%d/%Y at %I:%M%p")
 
-g = Game.new(Code.new(1234))
+g = Game.new
 
 loop do
     puts "\nEnter your guess code? ('quit' to exit)"

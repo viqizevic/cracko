@@ -12,7 +12,7 @@ def add_guessed(solver, guessed)
 end
 
 def ask_correct(solver, code)
-    puts "How many are correct?"
+    puts "How many are correct (perfectly placed)?"
     correct = gets.chomp.downcase
     case correct
     when ""
@@ -23,12 +23,12 @@ def ask_correct(solver, code)
         solver.add(code, correct[0].to_i, correct[2].to_i)
         check(solver)
     else
-        puts "Please enter one digit"
+        puts "Please enter one digit (0-4)"
     end
 end
 
 def ask_almost(solver, code, correct)
-    puts "How many are almost correct?"
+    puts "How many are almost correct (wrongly placed)?"
     almost = gets.chomp.downcase
     case almost
     when ""
@@ -38,7 +38,7 @@ def ask_almost(solver, code, correct)
         solver.add(code, correct.to_i, almost.to_i)
         check(solver)
     else
-        puts "Please enter one digit"
+        puts "Please enter one digit (0-4)"
     end
 end
 

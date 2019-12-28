@@ -2,8 +2,11 @@ require_relative 'code'
 
 class Game
     
-    def initialize(code)
-        @code = code
+    def initialize
+        @code = Code.new(rand(1234..9876))
+        while not @code.valid?
+            @code = Code.new(rand(1234..9876))
+        end
         @last_guess = nil
     end
     
@@ -22,16 +25,16 @@ class Game
     def progress
         result = "Ready for a guess."
         if finish?
-            result = "Correct!"
+            result = "Correct! Well done! You found it!"
         else
             if nil != @last_guess
                 n = @code.correctly_placed_numbers(@last_guess)
                 m = @code.almost_correct(@last_guess)
-                result = "#{n} numbers are correctly placed"
+                result = "Perfectly placed: #{n}"
                 if 0 == m
                     result += "."
                 else
-                    result += "; #{m} almost correct."
+                    result += "\nAlmost correct (wrongly placed): #{m}."
                 end
             end
         end
